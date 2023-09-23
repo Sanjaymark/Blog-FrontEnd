@@ -11,6 +11,9 @@ export const AddBlogs = () =>{
 
     const handleAddBlog = async ()=>{
         const token = localStorage.getItem("token");
+
+        console.log(token);
+
         if(!token)
         {
             SetError("Invalid Authorization");
@@ -18,6 +21,7 @@ export const AddBlogs = () =>{
         else
         {
             const payload = {title,blog };
+            console.log(payload);
             addBlog(payload).then((data) =>
             {
                 if(data.error)

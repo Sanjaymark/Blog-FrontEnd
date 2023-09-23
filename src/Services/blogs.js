@@ -1,4 +1,4 @@
-import { API } from "./api";
+import { API } from "./api.js";
 
 
 export async function getAllBlogs()
@@ -40,6 +40,28 @@ export async function getUserBlogs()
         }
     });
 
-    const data = res.json();
+    const data = await res.json();
+    console.log(data)
     return data;
 }
+
+
+  
+export async function deleteBlog(blogId) {
+    try {
+      const res = await fetch(`${API}/blog/${blogId}`, {
+        method: "DELETE",
+        headers: {
+          "x-auth-token": localStorage.getItem("token"),
+        },
+      });
+  
+      const data = await res.json();
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.error(error);
+      throw new Error("Failed to delete blog");
+    }
+  }
+  

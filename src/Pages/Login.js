@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Navbar } from "../Components/Navbar";
 import { Button, TextField } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import { handleLogin } from "../Services/auth";
 
 export const Login = () =>{
@@ -10,10 +9,12 @@ export const Login = () =>{
     const [password, SetPassword] = useState("");
     const [error, SetError] = useState("");
     const [successMsg, setSuccessMsg] = useState("");
-    const Navigate = useNavigate();
+    
 
     const loginUser = async () =>{
         const payload = {name,email,password};
+
+        
 
         handleLogin(payload).then((data)=>
         {
