@@ -28,7 +28,7 @@ export const Blogs = () => {
   };
 
   return (
-    <div >
+    <div>
       <Navbar2 />
       <div>
         <BlogCards blogs={blogs} />
@@ -44,21 +44,33 @@ function BlogCards({ blogs }) {
     <div className="">
       {blogs && (
         <div>
-          {blogs?.map((blog) => (
-            <Card sx={{ maxWidth: 345, margin: "0 0 20px" }} key={blog._id}>
-              <CardActionArea>
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {blog.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {blog.blog}
-                  </Typography>
-                  <Typography variant="body2">posted on {blog.date}</Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          ))}
+          {blogs?.map((blog) => {
+            // Parse the existing date
+            const originalDate = new Date(blog.date);
+
+            // Add 5 hours and 30 minutes to the date
+            originalDate.setHours(originalDate.getHours() + 5);
+            originalDate.setMinutes(originalDate.getMinutes() + 30);
+
+            // Format the updated date as a string
+            const formattedDate = originalDate.toLocaleString();
+
+            return (
+              <Card sx={{ maxWidth: 345, margin: "0 0 20px" }} key={blog._id}>
+                <CardActionArea>
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {blog.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {blog.blog}
+                    </Typography>
+                    <Typography variant="body2">posted on {formattedDate}</Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            );
+          })}
         </div>
       )}
     </div>
