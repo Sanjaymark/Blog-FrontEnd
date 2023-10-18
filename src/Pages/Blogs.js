@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navbar } from "../Components/Navbar";
+import { Navbar2 } from "../Components/Navbar";
 import { getAllBlogs } from "../Services/blogs";
 import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 
@@ -28,9 +28,12 @@ export const Blogs = () => {
   };
 
   return (
-    <div>
-      <Navbar />
-      <BlogCards blogs={blogs} />
+    <div >
+      <Navbar2 />
+      <div>
+        <BlogCards blogs={blogs} />
+      </div>
+      
       {error ? <div className="err-msg">{error}</div> : ""}
     </div>
   );
@@ -38,7 +41,7 @@ export const Blogs = () => {
 
 function BlogCards({ blogs }) {
   return (
-    <div>
+    <div className="">
       {blogs && (
         <div>
           {blogs?.map((blog) => (

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Navbar } from "../Components/Navbar";
 import { Button, TextField } from "@mui/material";
 import { handleLogin } from "../Services/auth";
+import { useNavigate } from "react-router";
 
 export const Login = () =>{
     const [name, SetName] = useState("");
@@ -9,6 +10,7 @@ export const Login = () =>{
     const [password, SetPassword] = useState("");
     const [error, SetError] = useState("");
     const [successMsg, setSuccessMsg] = useState("");
+    const Navigate = useNavigate();
     
 
     const loginUser = async () =>{
@@ -28,7 +30,7 @@ export const Login = () =>{
                 SetError("")
                 setSuccessMsg(data.message);
                 localStorage.setItem("token", data.token);
-                
+                Navigate("/blog/all")
             }
         })
     }

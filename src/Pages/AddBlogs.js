@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar } from "../Components/Navbar";
+import { Navbar2 } from "../Components/Navbar";
 import { Button, TextField } from "@mui/material";
 import { addBlog } from "../Services/blogs";
 
@@ -43,7 +43,7 @@ export const AddBlogs = () =>{
 
     return (
     <div>
-        <Navbar/>
+        <Navbar2/>
         <BlogForm 
             title={title}
             setTitle={setTitle}

@@ -28,7 +28,7 @@ export const Signup = () =>{
                 SetError("")
                 setSuccessMsg(data.message);
                 localStorage.setItem("token", data.token);
-                Navigate("/")
+                Navigate("/blog/all")
                 
             }
         })

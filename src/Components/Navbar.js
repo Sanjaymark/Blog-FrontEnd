@@ -34,3 +34,28 @@ export const Navbar = () => {
     </div>
   );
 };
+
+
+export const Navbar2 = () => {
+  const navigate = useNavigate();
+
+  return (
+    <div>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar sx={{ display: "flex", justifyContent: "center" }}>
+            <Button color="inherit" onClick={() => navigate("/blog/all")} sx={{ margin: "0 8px" }}>
+              Blogs
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/blog/user")} sx={{ margin: "0 8px" }}>
+              UserBlogs
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/blog/add")} sx={{ margin: "0 8px" }}>
+              Add Blogs
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    </div>
+  );
+};

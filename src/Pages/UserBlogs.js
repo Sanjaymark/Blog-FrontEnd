@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navbar } from "../Components/Navbar";
+import { Navbar2 } from "../Components/Navbar";
 import { Card, CardActionArea, CardContent, Typography, Button } from "@mui/material";
 import { getUserBlogs, deleteBlog } from "../Services/blogs";
 
@@ -50,7 +50,7 @@ export const UserBlogs = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar2 />
       <UserBlogCards
         blogs={blogs}
         onDeleteClick={handleDeleteBlog}
